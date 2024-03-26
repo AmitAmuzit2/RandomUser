@@ -10,4 +10,4 @@ Rest end point
    -H 'password: testpassword'
 
 5. [AngularWebPage] : web page that uses this REST service to show random user.
-6. [RandomUserAPI.Test] covered with some test cased
+6. [RandomUserAPI.Test] covered with some test cases
