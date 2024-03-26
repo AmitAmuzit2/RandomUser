@@ -1,4 +1,4 @@
-Rest end point
+
 1. Health check endpoint without authentication that return code 200 OK when service is loaded
    http://localhost:5066/health
 
