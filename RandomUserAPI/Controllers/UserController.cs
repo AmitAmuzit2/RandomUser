@@ -36,5 +36,22 @@ namespace RandomUserAPI.Controllers
 
 
         }
+        [HttpGet]
+        [Route("amit")]
+        public IActionResult Test()
+        {
+            try
+            {
+                var randomUser = _randomUserService.testService();
+                return Ok(randomUser);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception (ex) here if needed
+                return StatusCode(500, "An error occurred while processing your request.");
+            }
+        }
+
     }
+
 }
