@@ -1,4 +1,4 @@
-Rest end point
+
 1. Health check endpoint without authentication that return code 200 OK when service is loaded
    http://localhost:5066/health
 
@@ -10,4 +10,4 @@ Rest end point
    -H 'password: testpassword'
 
 5. [AngularWebPage] : web page that uses this REST service to show random user.
-6. [RandomUserAPI.Test] covered with some test cased
+6. [RandomUserAPI.Test] covered with some test cases
