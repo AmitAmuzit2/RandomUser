@@ -4,18 +4,18 @@ namespace RandomUserAPI.Entities
 {
     public class User
     {
-        public Name name { get; set; }
-        public string email { get; set; }
-        public string phone { get; set; }
+        public Name name { get; set; } = new Name();
+        public string email { get; set; } = string.Empty;
+        public string phone { get; set; } = string.Empty;
     }
     public class Name
     {
-        public string title { get; set; }
-        public string first { get; set; }
-        public string last { get; set; }
+        public string title { get; set; } = string.Empty;
+        public string first { get; set; } = string.Empty;
+        public string last { get; set; } = string.Empty;
     }
     public class UserResult
     {
-        public User[] results { get; set; }
+        public User[] results { get; set; } = Array.Empty<User>();
     }
 }
