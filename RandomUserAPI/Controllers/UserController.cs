@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RandomUserAPI.Services;
-using System.Text.Json;
 
 namespace RandomUserAPI.Controllers
 {
@@ -16,6 +14,8 @@ namespace RandomUserAPI.Controllers
             _randomUserService = randomUserService;
             _authService = authService;
         }
+
+
 
         [HttpGet]
         public async Task<IActionResult> GetRandomUser([FromHeader] string username, [FromHeader] string password)
@@ -45,9 +45,9 @@ namespace RandomUserAPI.Controllers
                 var randomUser = _randomUserService.testService();
                 return Ok(randomUser);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // Log the exception (ex) here if needed
+                // Log the exception here if needed
                 return StatusCode(500, "An error occurred while processing your request.");
             }
         }
