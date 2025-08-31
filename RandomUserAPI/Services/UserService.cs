@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
 using RandomUserAPI.Entities;
-using System.Net.Http;
-using System.Numerics;
 using System.Text.Json;
 
 namespace RandomUserAPI.Services
@@ -24,14 +22,19 @@ namespace RandomUserAPI.Services
             var json = await response.Content.ReadAsStringAsync();
             UserResult? userResult = JsonSerializer.Deserialize<UserResult>(json);
 
-            User? randomUser = userResult?.results[0];
+            if (userResult?.results == null || userResult.results.Length == 0)
+            {
+                return new UserDTO(); // Return empty DTO if no results
+            }
+
+            User randomUser = userResult.results[0];
 
             return new UserDTO
             {
-                FirstName = randomUser.name.first,
-                LastName = randomUser.name.last,
-                email = randomUser.email,
-                phone = randomUser.phone,
+                FirstName = randomUser.name?.first ?? string.Empty,
+                LastName = randomUser.name?.last ?? string.Empty,
+                email = randomUser.email ?? string.Empty,
+                phone = randomUser.phone ?? string.Empty,
                 // Add other properties as needed
             };
         }
@@ -61,7 +64,7 @@ namespace RandomUserAPI.Services
 
     public class User2
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public int? Age { get; set; }
         public DateTime? dt { get; set; }
     }
